@@ -16,15 +16,15 @@ def index():
 def registration():
     if request.method == 'POST':
         attendee = Attendee()
-        attendee.first_name = request.form['first_name']
-        attendee.last_name = request.form['last_name']
-        attendee.email = request.form['email']
-        attendee.job_position = request.form['job_position']
-        attendee.company = request.form['company']
-        attendee.city = request.form['city']
-        attendee.state = request.form['state']
-        attendee.interests = request.form['interest']
-        attendee.comments = request.form['message']
+        attendee.first_name = request.form.get('first_name')
+        attendee.last_name = request.form.get('last_name')
+        attendee.email = request.form.get('email')
+        attendee.job_position = request.form.get('job_position')
+        attendee.company = request.form.get('company')
+        attendee.city = request.form.get('city')
+        attendee.state = request.form.get('state')
+        attendee.interests = request.form.get('interest')
+        attendee.comments = request.form.get('message')
         attendee.conference_id = app.config.get('CONFERENCE_ID')
 
         try:
